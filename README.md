@@ -1,4 +1,4 @@
-# TechChallenge
+# TechChallenge - Marketim App
 
 ![alt text](https://github.com/onuryurtturk/TechChallenge/blob/master/app/src/main/res/drawable/app_logo.png "Logo")
 

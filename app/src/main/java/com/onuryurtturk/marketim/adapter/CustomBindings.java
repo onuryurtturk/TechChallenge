@@ -3,7 +3,6 @@ package com.onuryurtturk.marketim.adapter;
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import net.cachapa.expandablelayout.ExpandableLayout;
 
 public class CustomBindings {

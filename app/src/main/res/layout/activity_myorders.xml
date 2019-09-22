@@ -36,7 +36,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:indeterminate="true"
-                android:visibility="@{viewModel.loading}" />
+                android:visibility="@{viewModel.showLoadingView}" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="@string/empty_view_text"
-                android:visibility="@{viewModel.showEmpty}" />
+                android:visibility="@{viewModel.showEmptyView}" />
 
 
             <LinearLayout

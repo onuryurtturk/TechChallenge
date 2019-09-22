@@ -5,17 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-
 import com.onuryurtturk.marketim.databinding.ActivityMyordersBinding;
 import com.onuryurtturk.marketim.model.Order;
 import com.onuryurtturk.marketim.util.LoginHelper;
 import com.onuryurtturk.marketim.viewmodel.OrdersViewModel;
-
 import java.util.List;
 
 public class MyOrdersActivity extends AppCompatActivity {
@@ -40,16 +36,16 @@ public class MyOrdersActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView(){
-        ordersViewModel.loading.set(View.VISIBLE);
+        ordersViewModel.showLoadingView.set(View.VISIBLE);
         ordersViewModel.fetchList();
         ordersViewModel.getOrders().observe(this, new Observer<List<Order>>() {
             @Override
             public void onChanged(List<Order> orders) {
-                ordersViewModel.loading.set(View.GONE);
+                ordersViewModel.showLoadingView.set(View.GONE);
                 if(orders.size() == 0){
-                    ordersViewModel.showEmpty.set(View.VISIBLE);
+                    ordersViewModel.showEmptyView.set(View.VISIBLE);
                 }else{
-                    ordersViewModel.showEmpty.set(View.GONE);
+                    ordersViewModel.showEmptyView.set(View.GONE);
                     ordersViewModel.setOrdersToAdapter(orders);
                 }
             }
@@ -58,7 +54,7 @@ public class MyOrdersActivity extends AppCompatActivity {
     }
 
     private void initItemClick(){
-        ordersViewModel.getSelectedOrder().observe(this, new Observer<Order>() {
+        ordersViewModel.getmSelectedOrder().observe(this, new Observer<Order>() {
             @Override
             public void onChanged(Order order) {
                 if(order!=null){

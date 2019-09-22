@@ -8,65 +8,65 @@ import com.onuryurtturk.marketim.R;
 import com.onuryurtturk.marketim.adapter.OrdersRecyclerAdapter;
 import com.onuryurtturk.marketim.model.Order;
 import com.onuryurtturk.marketim.model.Orders;
-
 import java.util.List;
 
 public class OrdersViewModel extends ViewModel {
 
-    private Orders orders;
-    private OrdersRecyclerAdapter ordersAdapter;
-    public MutableLiveData<Order> selectedOrder;
-    public ObservableInt loading;
-    public ObservableInt showEmpty;
+    private Orders mOrders;
+    private OrdersRecyclerAdapter mOrdersAdapter;
+    private MutableLiveData<Order> mSelectedOrder;
+    public ObservableInt showLoadingView;
+    public ObservableInt showEmptyView;
     public MutableLiveData<Boolean> checklogout;
 
     public void create(){
-        orders = new Orders();
-        selectedOrder = new MutableLiveData<>();
-        ordersAdapter = new OrdersRecyclerAdapter(R.layout.item_order,this);
-        loading = new ObservableInt(View.GONE);
-        showEmpty = new ObservableInt(View.GONE);
+        mOrders = new Orders();
+        mSelectedOrder = new MutableLiveData<>();
+        mOrdersAdapter = new OrdersRecyclerAdapter(R.layout.item_order,this);
+        showLoadingView = new ObservableInt(View.GONE);
+        showEmptyView = new ObservableInt(View.GONE);
         checklogout = new MutableLiveData<>();
     }
 
     public void fetchList(){
-        orders.fetchOrderList();
+        mOrders.fetchOrderList();
     }
 
     public MutableLiveData<List<Order>> getOrders(){
-        return orders.getOrders();
+        return mOrders.getOrders();
+    }
+
+    public Order getOrderByIndex(Integer index) {
+        if (mOrders.getOrders().getValue() != null && index != null && mOrders.getOrders().getValue().size() > index) {
+            return mOrders.getOrders().getValue().get(index);
+        }
+        return null;
     }
 
     public OrdersRecyclerAdapter getOrdersAdapter(){
-        return ordersAdapter;
+        return mOrdersAdapter;
     }
 
-    public void setOrdersToAdapter(List<Order> orders){
-        this.ordersAdapter.setOrderList(orders);
-        this.ordersAdapter.notifyDataSetChanged();
-    }
-
-    public MutableLiveData<Order> getSelectedOrder(){
-        return selectedOrder;
+    public MutableLiveData<Order> getmSelectedOrder(){
+        return mSelectedOrder;
     }
 
     public MutableLiveData<Boolean> getLogoutStatus(){
         return checklogout;
     }
 
+    public void setOrdersToAdapter(List<Order> orders){
+        this.mOrdersAdapter.setOrderList(orders);
+        this.mOrdersAdapter.notifyDataSetChanged();
+    }
+
     public void onItemClick(Integer index){
-        selectedOrder.setValue(getOrderWithIndex(index));
+        mSelectedOrder.setValue(getOrderByIndex(index));
     }
 
     public void onLogoutClick(){
         checklogout.setValue(true);
     }
 
-    public Order getOrderWithIndex(Integer index) {
-        if (orders.getOrders().getValue() != null && index != null && orders.getOrders().getValue().size() > index) {
-            return orders.getOrders().getValue().get(index);
-        }
-        return null;
-    }
 
 }

@@ -43,7 +43,7 @@
                     android:layout_height="20dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:background="@{Color.parseColor(viewModel.getOrderWithIndex(position).stateColor)}"
+                    android:background="@{Color.parseColor(viewModel.getOrderByIndex(position).stateColor)}"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/middle_row" />
 
@@ -54,7 +54,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@{viewModel.getOrderWithIndex(position).date}"
+                    android:text="@{viewModel.getOrderByIndex(position).date}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/textSize_order_item_date"
                     android:textStyle="bold"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@{viewModel.getOrderWithIndex(position).month}"
+                    android:text="@{viewModel.getOrderByIndex(position).month}"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/textSize_order_item_date_month"
                     android:textStyle="bold"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="32dp"
-                    android:text="@{viewModel.getOrderWithIndex(position).marketName}"
+                    android:text="@{viewModel.getOrderByIndex(position).marketName}"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -112,8 +112,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="24dp"
-                    android:text="@{viewModel.getOrderWithIndex(position).productState}"
-                    android:textColor="@{Color.parseColor(viewModel.getOrderWithIndex(position).stateColor)}"
+                    android:text="@{viewModel.getOrderByIndex(position).productState}"
+                    android:textColor="@{Color.parseColor(viewModel.getOrderByIndex(position).stateColor)}"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/img_productState"
                     app:layout_constraintTop_toBottomOf="@+id/middle_row" />
@@ -140,14 +140,14 @@
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:text="@{viewModel.getOrderWithIndex(position).orderName}" />
+                        android:text="@{viewModel.getOrderByIndex(position).orderName}" />
 
                     <TextView
                         android:id="@+id/txt_price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.8"
-                        android:text="@{viewModel.getOrderWithIndex(position).productPrice}"
+                        android:text="@{viewModel.getOrderByIndex(position).productPrice}"
                         android:textAlignment="viewEnd"
                         android:textStyle="bold" />
 
@@ -162,7 +162,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="16dp"
                     app:el_duration="600"
-                    app:el_expanded="@{viewModel.getOrderWithIndex(position).expanded}"
+                    app:el_expanded="@{viewModel.getOrderByIndex(position).expanded}"
                     app:el_parallax="0.5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -192,7 +192,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_weight="0.8"
-                            android:text="@{viewModel.getOrderWithIndex(position).productDetail.orderDetail}" />
+                            android:text="@{viewModel.getOrderByIndex(position).productDetail.orderDetail}" />
 
                         <TextView
                             android:id="@+id/txt_productdetail_price"
@@ -200,7 +200,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_weight="0.1"
-                            android:text="@{viewModel.getOrderWithIndex(position).productDetail.summaryPrice}"
+                            android:text="@{viewModel.getOrderByIndex(position).productDetail.summaryPrice}"
                             android:textStyle="bold" />
 
                     </LinearLayout>

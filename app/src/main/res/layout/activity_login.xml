@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.onuryurtturk.marketim.viewmodel.LoginViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/txt_AppTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textSize_login_big"
+            android:textStyle="bold"
+            android:typeface="normal"
+            app:layout_constraintBottom_toTopOf="@+id/edt_UserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.229" />
+
+        <EditText
+            android:id="@+id/edt_UserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="268dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/ic_login_username"
+            android:drawablePadding="@dimen/ic_drawable_left_padding"
+            android:ems="10"
+            android:hint="@string/username_hnt"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:text="@={viewModel.username}"
+            android:textColor="@color/dimThemeColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_Password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/edittext_background"
+            android:drawableStart="@drawable/ic_login_password"
+            android:drawablePadding="@dimen/ic_drawable_left_padding"
+            android:ems="10"
+            android:hint="@string/password_hnt"
+            android:inputType="textPassword"
+            android:maxWidth="250dp"
+            android:minWidth="250dp"
+            android:padding="10dp"
+            android:text="@={viewModel.password}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_UserName" />
+
+
+        <LinearLayout
+            android:id="@+id/layout_Remember"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_Password">
+
+            <Switch
+                android:id="@+id/sw_Remember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/sw_horizontal_padding"
+                android:paddingLeft="@dimen/sw_horizontal_padding"
+                android:onCheckedChanged="@{(switch, checked) -> viewModel.onCheckedChanged(checked)}"
+                android:paddingTop="@dimen/sw_vertical_padding"
+                android:paddingEnd="@dimen/sw_horizontal_padding"
+                android:paddingRight="@dimen/sw_horizontal_padding"
+                android:paddingBottom="@dimen/sw_vertical_padding" />
+
+            <TextView
+                android:id="@+id/lbl_RememberMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sw_horizontal_padding"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/rememberMe_text"
+                android:textSize="@dimen/textSize_login_standard"
+                android:typeface="normal" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_Login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/button_background"
+            android:clickable="true"
+            android:enabled="true"
+            android:focusable="true"
+            android:fontFamily="sans-serif-medium"
+            android:onClick="@{(v) -> viewModel.onClick(v)}"
+            android:paddingTop="@dimen/btn_vertical_padding"
+            android:paddingBottom="@dimen/btn_vertical_padding"
+            android:text="@string/login_text"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/textSize_login_standard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_Remember"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

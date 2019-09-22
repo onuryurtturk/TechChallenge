@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="java.lang.Integer" />
+
+        <variable
+            name="viewModel"
+            type="com.onuryurtturk.marketim.viewmodel.OrdersViewModel" />
+
+        <import type="android.graphics.Color" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:onClick="@{() -> viewModel.onItemClick(position)}">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvOrder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:padding="@dimen/cardview_padding"
+            card_view:cardCornerRadius="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/btn_vertical_padding">
+
+                <ImageView
+                    android:id="@+id/img_product_state"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@{Color.parseColor(viewModel.getOrderWithIndex(position).stateColor)}"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/middle_row" />
+
+                <TextView
+                    android:id="@+id/txt_Date_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{viewModel.getOrderWithIndex(position).date}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textSize_order_item_date"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_Date_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@{viewModel.getOrderWithIndex(position).month}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textSize_order_item_date_month"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_Date_day" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="2dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@color/dimThemeColor"
+                    app:layout_constraintStart_toEndOf="@+id/txt_Date_day"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_market_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@{viewModel.getOrderWithIndex(position).marketName}"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_expand"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_expand"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_order_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@{viewModel.getOrderWithIndex(position).productState}"
+                    android:textColor="@{Color.parseColor(viewModel.getOrderWithIndex(position).stateColor)}"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/img_product_state"
+                    app:layout_constraintTop_toBottomOf="@+id/middle_row" />
+
+                <LinearLayout
+                    android:id="@+id/middle_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_market_name">
+
+                    <TextView
+                        android:id="@+id/txt_order_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@{viewModel.getOrderWithIndex(position).orderName}" />
+
+                    <TextView
+                        android:id="@+id/txt_price"
+                        android:layout_width="match_parent"
+                        android:textAlignment="viewEnd"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:text="@{viewModel.getOrderWithIndex(position).productPrice}"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <net.cachapa.expandablelayout.ExpandableLayout
+                    android:id="@+id/expandable_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    app:el_duration="600"
+                    app:el_expanded="@{viewModel.getOrderWithIndex(position).expanded}"
+                    app:el_parallax="0.5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_order_state">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:maxWidth="15dp"
+                            android:maxHeight="15dp"
+                            android:minWidth="15dp"
+                            android:minHeight="15dp"
+                            android:src="@drawable/ic_shop_card" />
+
+
+                        <TextView
+                            android:id="@+id/txt_productdetail_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="0.8"
+                            android:text="@{viewModel.getOrderWithIndex(position).productDetail.orderDetail}" />
+
+                        <TextView
+                            android:id="@+id/txt_productdetail_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="0.1"
+                            android:text="@{viewModel.getOrderWithIndex(position).productDetail.summaryPrice}"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </net.cachapa.expandablelayout.ExpandableLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

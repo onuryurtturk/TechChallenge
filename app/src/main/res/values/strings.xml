@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Marketim</string>
+    <string name="username_hnt">Kullanıcı Adı</string>
+    <string name="password_hnt">Şifre</string>
+    <string name="login_text">Giriş</string>
+    <string name="rememberMe_text">Beni Hatırla</string>
+    <string name="empty_view_text">Gösterilecek sipariş bulunamadı.</string>
+    <string name="title_orders">Siparişlerim</string>
+
+    <string name="dummy_price">999</string>
+    <string name="dummy_product_title">Ürün xyz</string>
+    <string name="dummy_market_title">Market abc</string>
+    <string name="dummy_state">Hazırlanıyor</string>
+    <string name="dummy_date_day">99</string>
+    <string name="dummy_date_month">Haziran</string>
+
+    <string name="login_successfull">Giriş başarılı! Sipariş sayfasına yönlendiriliyorsunuz.</string>
+    <string name="username_empty">Kullanıcı adı boş olamaz!</string>
+    <string name="username_wrong">Kullanıcı adı hatalı!</string>
+    <string name="password_empty">Şifre boş olamaz!</string>
+    <string name="password_wrong">Şifre hatalı!</string>
+
+    <string name="title_logout">Çıkış Yap</string>
+    <string name="logout_question">Çıkış yapmak istediğinize emin misiniz?</string>
+    <string name="logout_positive">Evet</string>
+    <string name="logout_negative">Vazgeç</string>
+</resources>

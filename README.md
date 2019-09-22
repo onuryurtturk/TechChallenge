@@ -12,9 +12,9 @@
 
 ### Used Libraries
 
-- [Retrofit](https://github.com/square/retrofit) 
-- [OkHttp](https://github.com/square/okhttp) 
-- [ExpandableLayout](https://github.com/cachapa/ExpandableLayout)
+- [Retrofit](https://github.com/square/retrofit)  : Used for api operations
+- [OkHttp](https://github.com/square/okhttp) : Required for monitoring api calls and creating client
+- [ExpandableLayout](https://github.com/cachapa/ExpandableLayout) : Used in generating expandable and clickable order item views
 
 
 ### Screenshots

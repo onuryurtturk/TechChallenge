@@ -4,9 +4,9 @@
 
 ### Details
 
-- Developed with Java and based on MVVM (Model-View-ViewModel) design pattern.
+- Developed with Java and based on MVVM (Model-View-ViewModel) design pattern
 - 3 different screen - Splash, Login, Orders  
-- Remember me function. Username and password stored locally.
+- Remember me function. Username and password stored locally
 - Compatible with Android 4.4+
 - Layouts support different screen sizes
 
@@ -14,7 +14,7 @@
 
 - [Retrofit](https://github.com/square/retrofit)  : Used for api operations
 - [OkHttp](https://github.com/square/okhttp) : Required for monitoring api calls and creating client
-- [ExpandableLayout](https://github.com/cachapa/ExpandableLayout) : Used in generating expandable and clickable order item views
+- [ExpandableLayout](https://github.com/cachapa/ExpandableLayout) : Used in creating expandable and clickable order item views
 
 
 ### Screenshots

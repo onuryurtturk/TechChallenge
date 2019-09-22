@@ -1,6 +1,6 @@
 # TechChallenge
 
-![](https://pasteboard.co/IyBWUf1.png)
+![alt text](https://pasteboard.co/IyBWUf1.png "Logo")
 
 ### Details
 

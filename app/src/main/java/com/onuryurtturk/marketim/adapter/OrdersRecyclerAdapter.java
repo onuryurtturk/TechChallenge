@@ -15,8 +15,9 @@ import com.onuryurtturk.marketim.viewmodel.OrdersViewModel;
 
 import java.util.List;
 
-public class OrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecyclerAdapter.GenericViewHolder> {
+public class OrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecyclerAdapter.OrderViewHolder> {
 
+    //Recyclerview adapter class
     private int layoutId;
     private List<Order> orders;
     private OrdersViewModel viewModel;
@@ -27,18 +28,29 @@ public class OrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecyclerAd
 
     }
 
+    /**
+     * returns resource id
+     */
     private int getLayoutIdForPosition(int position) {
         return layoutId;
     }
 
-    public GenericViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    /**
+     * binding init, create viewholders
+     */
+    public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
-        return new GenericViewHolder(binding);
+        return new OrderViewHolder(binding);
     }
 
+    /**
+     * binding operations
+     * @param holder - view holder
+     * @param position - specific row position
+     */
     @Override
-    public void onBindViewHolder(@NonNull GenericViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         holder.bind(viewModel, position);
     }
 
@@ -47,19 +59,28 @@ public class OrdersRecyclerAdapter extends RecyclerView.Adapter<OrdersRecyclerAd
         return getLayoutIdForPosition(position);
     }
 
+    /**
+     * Filling order list
+     */
     public void setOrderList(List<Order> orders) {
         this.orders = orders;
     }
 
+    /**
+     * returns order size
+     */
     @Override
     public int getItemCount() {
         return orders == null ? 0 : orders.size();
     }
 
-    class GenericViewHolder extends RecyclerView.ViewHolder {
+
+    // generating viewholders for order items
+    class OrderViewHolder extends RecyclerView.ViewHolder {
+
         final ViewDataBinding binding;
 
-        GenericViewHolder(ViewDataBinding binding) {
+        OrderViewHolder(ViewDataBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

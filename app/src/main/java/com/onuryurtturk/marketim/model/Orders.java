@@ -15,17 +15,31 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Orders extends BaseObservable {
+
+    //order list holds orders
     private List<Order> orderList = new ArrayList<>();
+
+    //Live order list to handle changes
     private MutableLiveData<List<Order>> orders = new MutableLiveData<>();
 
+    /**
+     * Adds order object to current list
+     * @param od - order object to add list
+     */
     public void addOrder(Order od) {
         orderList.add(od);
     }
 
+    /**
+     * returns orders object
+     */
     public MutableLiveData<List<Order>> getOrders() {
         return orders;
     }
 
+    /**
+     * calls api method and fills orders object
+     */
     public void fetchOrderList() {
         Callback<Orders> callback = new Callback<Orders>() {
             @Override

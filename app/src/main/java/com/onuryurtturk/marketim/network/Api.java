@@ -45,7 +45,7 @@ public class Api {
 
     /**
      * GET method for order list
-     * used "/" tag
+     * used "/" tag as non-subdirectory
      */
     public interface ApiInterface {
         @GET("/")

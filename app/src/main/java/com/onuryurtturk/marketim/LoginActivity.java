@@ -21,6 +21,12 @@ public class LoginActivity extends AppCompatActivity {
     private LoginHelper loginValidator;
     private LoginViewModel loginViewModel;
 
+    /**
+     * check the user is stored before
+     * if stored go orders activity
+     * if its not store do login operations
+     * control user inputs and warn user
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +63,9 @@ public class LoginActivity extends AppCompatActivity {
             });
         }
     }
-
+    /**
+     * If login process is completed then go to orders activity
+     */
     private void completeLoginOperation() {
         Toast.makeText(LoginActivity.this, getResources().getString(R.string.login_successfull), Toast.LENGTH_SHORT).show();
         startActivity(new Intent(LoginActivity.this, MyOrdersActivity.class));

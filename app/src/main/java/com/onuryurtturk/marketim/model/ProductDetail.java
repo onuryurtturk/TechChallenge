@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class ProductDetail {
 
     /**
-     * Expandable layout, product details model class
+     * product details model class for Expandable layout
      */
 
     @SerializedName("orderDetail")

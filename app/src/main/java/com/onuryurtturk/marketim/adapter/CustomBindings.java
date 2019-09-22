@@ -7,6 +7,12 @@ import net.cachapa.expandablelayout.ExpandableLayout;
 
 public class CustomBindings {
 
+    //Includes custom binder methods for custom attributes
+    /**
+     * recyclerview custom binding method to set adapter
+     * @param recyclerView view reference
+     * @param adapter created adapter
+     */
     @BindingAdapter("setAdapter")
     public static void bindRecyclerViewAdapter(RecyclerView recyclerView, RecyclerView.Adapter<?> adapter) {
         recyclerView.setHasFixedSize(true);
@@ -14,6 +20,11 @@ public class CustomBindings {
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * expandable layout custom binding method to change expantion state
+     * @param expandableLayout view reference
+     * @param expandState expantion state reference
+     */
     @BindingAdapter("el_expanded")
     public static void setExpanded(ExpandableLayout expandableLayout, boolean expandState) {
         expandableLayout.setExpanded(expandState,false);

@@ -19,4 +19,4 @@
 
 ### Screenshots
 
-<img src="https://github.com/onuryurtturk/TechChallenge/blob/master/screenshots/ss1.png" width="250"> | <img src="https://github.com/onuryurtturk/TechChallenge/blob/master/screenshots/ss2.png" width="250"> | <img src="https://github.com/onuryurtturk/TechChallenge/blob/master/screenshots/ss3.png" width="250"> 
+<img src="https://github.com/onuryurtturk/TechChallenge/blob/master/screenshots/ss1.png" width="250"> <img src="https://github.com/onuryurtturk/TechChallenge/blob/master/screenshots/ss2.png" width="250">  <img src="https://github.com/onuryurtturk/TechChallenge/blob/master/screenshots/ss3.png" width="250"> 

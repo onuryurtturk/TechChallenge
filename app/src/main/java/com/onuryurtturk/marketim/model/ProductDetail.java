@@ -4,12 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class ProductDetail {
 
+    /**
+     * Expandable layout, product details model class
+     */
 
     @SerializedName("orderDetail")
     private String orderDetail;
     @SerializedName("summaryPrice")
     private String summaryPrice;
-
 
     public ProductDetail(String mOrderDetail, String mSummaryPrice) {
         this.orderDetail = mOrderDetail;
@@ -20,12 +22,12 @@ public class ProductDetail {
         return orderDetail;
     }
 
-    public void setOrderDetail(String mOrderDetail) {
-        this.orderDetail = mOrderDetail;
-    }
-
     public String getSummaryPrice() {
         return summaryPrice;
+    }
+
+    public void setOrderDetail(String mOrderDetail) {
+        this.orderDetail = mOrderDetail;
     }
 
     public void setSummaryPrice(String mSummaryPrice) {

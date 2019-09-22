@@ -1,17 +1,14 @@
 package com.onuryurtturk.marketim.network;
 
-import android.util.Log;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import com.onuryurtturk.marketim.constants.enumOrderStateColor;
+import com.onuryurtturk.marketim.enums.enumOrderStateColor;
 import com.onuryurtturk.marketim.model.Order;
 import com.onuryurtturk.marketim.model.Orders;
 import com.onuryurtturk.marketim.model.ProductDetail;
-
 import java.lang.reflect.Type;
 import java.text.DateFormatSymbols;
 import java.util.Currency;
@@ -19,8 +16,14 @@ import java.util.Locale;
 
 public class OrderDeserializer implements JsonDeserializer<Orders> {
 
+    //currency symbol variable, appends with price value
     private String currency = Currency.getInstance(Locale.getDefault()).getSymbol();
 
+    /**
+     * Deserialize api result to order model
+     * @param json - api result
+     * returns Orders object which holds order list
+     */
     @Override
     public Orders deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         Orders orders = new Orders();
@@ -43,6 +46,11 @@ public class OrderDeserializer implements JsonDeserializer<Orders> {
         return orders;
     }
 
+    /**
+     * Convert month numbers to words
+     * @param month - string value to convert (number to word)
+     * Used in deserialize process
+     */
     private String getMonthByNumbers(String month) {
         if (month.startsWith("0")) {
             month = month.replace("0", "");

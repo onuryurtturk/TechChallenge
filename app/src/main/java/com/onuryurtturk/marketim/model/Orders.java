@@ -15,7 +15,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Orders extends BaseObservable {
-
     private List<Order> orderList = new ArrayList<>();
     private MutableLiveData<List<Order>> orders = new MutableLiveData<>();
 

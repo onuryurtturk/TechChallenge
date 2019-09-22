@@ -13,8 +13,11 @@ import retrofit2.http.GET;
 
 public class Api {
 
+    //base url for api requests
     private static final String BASE_URL = "http://kariyertechchallenge.mockable.io";
+    //api object
     private static ApiInterface api;
+
 
     public static ApiInterface getApi() {
         if (api == null) {
@@ -40,9 +43,12 @@ public class Api {
         return api;
     }
 
+    /**
+     * GET method for order list
+     * used "/" tag
+     */
     public interface ApiInterface {
         @GET("/")
         Call<Orders> getOrders();
-
     }
 }

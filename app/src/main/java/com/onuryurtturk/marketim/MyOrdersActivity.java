@@ -24,6 +24,10 @@ public class MyOrdersActivity extends AppCompatActivity {
         initBindings(savedInstanceState);
     }
 
+    /**
+     * init bindings and set viewmodel
+     */
+
     private void initBindings(Bundle savedInstanceState){
         ActivityMyordersBinding activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_myorders);
         ordersViewModel = ViewModelProviders.of(this).get(OrdersViewModel.class);
@@ -34,6 +38,12 @@ public class MyOrdersActivity extends AppCompatActivity {
         initRecyclerView();
         initLogoutClick();
     }
+
+    /**
+     * fetch orderlist and bind order items to recyclerview
+     * Show Emptyview if result size is zero
+     * Show Loadingview while fetching
+     */
 
     private void initRecyclerView(){
         ordersViewModel.showLoadingView.set(View.VISIBLE);
@@ -53,8 +63,14 @@ public class MyOrdersActivity extends AppCompatActivity {
         initItemClick();
     }
 
+
+    /**
+     * init selected order observer for expansion operations
+     * When item clicked, selected item and state will be changed.
+     */
+
     private void initItemClick(){
-        ordersViewModel.getmSelectedOrder().observe(this, new Observer<Order>() {
+        ordersViewModel.getSelectedOrder().observe(this, new Observer<Order>() {
             @Override
             public void onChanged(Order order) {
                 if(order!=null){
@@ -64,6 +80,10 @@ public class MyOrdersActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * init logout button click handler
+     * When button clicked user will be warned with dialog
+     */
     private void initLogoutClick(){
         ordersViewModel.getLogoutStatus().observe(this, new Observer<Boolean>() {
             @Override
@@ -76,6 +96,10 @@ public class MyOrdersActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * create and show logout confirmation dialog
+     * When positive button click, user data delete by LoginHelper object
+     */
     private void askForLogout(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MyOrdersActivity.this);
         builder.setMessage(getResources().getString(R.string.logout_question));

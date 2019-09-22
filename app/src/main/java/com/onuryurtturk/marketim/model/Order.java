@@ -6,6 +6,8 @@ import androidx.databinding.library.baseAdapters.BR;
 
 public class Order extends BaseObservable {
 
+    //Order model class
+
     private String date;
     private String month;
     private String marketName;

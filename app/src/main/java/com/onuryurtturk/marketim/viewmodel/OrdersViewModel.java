@@ -47,7 +47,7 @@ public class OrdersViewModel extends ViewModel {
         return mOrdersAdapter;
     }
 
-    public MutableLiveData<Order> getmSelectedOrder(){
+    public MutableLiveData<Order> getSelectedOrder(){
         return mSelectedOrder;
     }
 

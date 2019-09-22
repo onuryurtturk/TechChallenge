@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -25,7 +24,7 @@
         android:onClick="@{() -> viewModel.onItemClick(position)}">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvOrder"
+            android:id="@+id/cardView_order"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -39,7 +38,7 @@
                 android:padding="@dimen/btn_vertical_padding">
 
                 <ImageView
-                    android:id="@+id/img_product_state"
+                    android:id="@+id/img_productState"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="24dp"
@@ -49,7 +48,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/middle_row" />
 
                 <TextView
-                    android:id="@+id/txt_Date_day"
+                    android:id="@+id/txt_dateDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -63,7 +62,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txt_Date_month"
+                    android:id="@+id/txt_dateMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -73,7 +72,7 @@
                     android:textSize="@dimen/textSize_order_item_date_month"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_Date_day" />
+                    app:layout_constraintTop_toBottomOf="@+id/txt_dateDay" />
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -82,11 +81,11 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:background="@color/dimThemeColor"
-                    app:layout_constraintStart_toEndOf="@+id/txt_Date_day"
+                    app:layout_constraintStart_toEndOf="@+id/txt_dateDay"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txt_market_name"
+                    android:id="@+id/txt_marketName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -108,7 +107,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/txt_order_state"
+                    android:id="@+id/txt_orderState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -116,7 +115,7 @@
                     android:text="@{viewModel.getOrderWithIndex(position).productState}"
                     android:textColor="@{Color.parseColor(viewModel.getOrderWithIndex(position).stateColor)}"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/img_product_state"
+                    app:layout_constraintStart_toEndOf="@+id/img_productState"
                     app:layout_constraintTop_toBottomOf="@+id/middle_row" />
 
                 <LinearLayout
@@ -131,10 +130,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_market_name">
+                    app:layout_constraintTop_toBottomOf="@+id/txt_marketName">
 
                     <TextView
-                        android:id="@+id/txt_order_name"
+                        android:id="@+id/txt_orderName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -146,17 +145,17 @@
                     <TextView
                         android:id="@+id/txt_price"
                         android:layout_width="match_parent"
-                        android:textAlignment="viewEnd"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.8"
                         android:text="@{viewModel.getOrderWithIndex(position).productPrice}"
+                        android:textAlignment="viewEnd"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
 
                 <net.cachapa.expandablelayout.ExpandableLayout
-                    android:id="@+id/expandable_layout"
+                    android:id="@+id/layout_expandable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
@@ -167,7 +166,7 @@
                     app:el_parallax="0.5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_order_state">
+                    app:layout_constraintTop_toBottomOf="@+id/txt_orderState">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -177,7 +176,7 @@
                         android:weightSum="1">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/img_shopCart"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.1"
@@ -185,8 +184,7 @@
                             android:maxHeight="15dp"
                             android:minWidth="15dp"
                             android:minHeight="15dp"
-                            android:src="@drawable/ic_shop_card" />
-
+                            android:src="@drawable/ic_shop_cart" />
 
                         <TextView
                             android:id="@+id/txt_productdetail_name"
@@ -207,9 +205,12 @@
 
                     </LinearLayout>
 
-
                 </net.cachapa.expandablelayout.ExpandableLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
+
     </LinearLayout>
+
 </layout>

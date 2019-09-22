@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.onuryurtturk.marketim.viewmodel.OrdersViewModel" />
@@ -18,79 +19,78 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewOrders"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="4dp"
-            android:layout_marginBottom="@dimen/recycler_bottom_margin"
-            app:setAdapter="@{viewModel.getOrdersAdapter()}" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_orders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/recycler_bottom_margin"
+                android:padding="4dp"
+                app:setAdapter="@{viewModel.getOrdersAdapter()}" />
 
-        <androidx.core.widget.ContentLoadingProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:id="@+id/spinner_loading"
-            android:indeterminate="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="@{viewModel.loading}"
-            android:layout_gravity="center"/>
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/spinner_loading"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="@dimen/progressbar_size"
+                android:layout_height="@dimen/progressbar_size"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="@{viewModel.loading}" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="@{viewModel.showEmpty}"
-            android:text="@string/empty_view_text"/>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/button_bar_height"
-            android:gravity="bottom"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btn_orders"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:background="@drawable/btn_whitebox_background"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/title_orders"
-                android:textAllCaps="false"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="5dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/textSize_login_standard"
-                android:clickable="true"
-                android:enabled="true"
-                android:focusable="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/empty_view_text"
+                android:visibility="@{viewModel.showEmpty}" />
 
-            <Button
-                android:id="@+id/btn_Logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/btn_background"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/title_logout"
-                android:onClick="@{() -> viewModel.onLogoutClick()}"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/textSize_login_standard"
-                android:clickable="true"
-                android:enabled="true"
-                android:focusable="true" />
-        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_bar_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_orders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_whitebox_background"
+                    android:clickable="true"
+                    android:enabled="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/title_orders"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/textSize_login_standard" />
+
+                <Button
+                    android:id="@+id/btn_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_background"
+                    android:clickable="true"
+                    android:enabled="true"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:onClick="@{() -> viewModel.onLogoutClick()}"
+                    android:text="@string/title_logout"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textSize_login_standard" />
+
+            </LinearLayout>
         </RelativeLayout>
-
     </FrameLayout>
-
 </layout>

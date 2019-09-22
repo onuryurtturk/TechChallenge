@@ -1,6 +1,6 @@
 # TechChallenge
 
-![alt text](https://pasteboard.co/IyBWUf1.png "Logo")
+![alt text](https://github.com/onuryurtturk/TechChallenge/blob/master/app/src/main/res/drawable/app_logo.png "Logo")
 
 ### Details
 
